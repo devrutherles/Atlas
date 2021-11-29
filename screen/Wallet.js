@@ -25,7 +25,7 @@ const screen = ({navigation}) => {
 
         <Text style={styles.text} text60 >CONNECT SUPPORTED WALLET</Text>
         
-        <Button onPress={() => navigation.navigate('ConnectWallet')} iconStyle={{ width: 30, height: 30 }} 
+        <Button onPress={() => navigation.navigate('ConnectPhantom')} iconStyle={{ width: 30, height: 30 }} 
         outline={true} outlineColor={'#fff'} iconSource={phanton} borderRadius={4} style={{ width: '90%', alignSelf: 'center', marginBottom: 10, }} label={'PHANTOM'}></Button>
         
         <Button onPress={() => navigation.navigate('ConnectWallet')} iconStyle={{ width: 30, height: 30 }} 
@@ -33,9 +33,6 @@ const screen = ({navigation}) => {
         
         <Button onPress={() => navigation.navigate('ConnectWallet')} iconStyle={{ width: 30, height: 30 }} 
         outline={true} outlineColor={'#fff'} iconSource={solana} borderRadius={4} style={{ width: '90%', alignSelf: 'center', marginBottom: 10, }} label={'SOLLET.IO'}></Button>
-                <Text style={styles.text} text60 >OR</Text>
-                <Button onPress={() => navigation.navigate('Welcome')}  
-        outline={true} outlineColor={'#fff'}  borderRadius={4} style={{ width: '90%', alignSelf: 'center', marginBottom: 10, }} label={'CONNECTED WALLET ADDRESS'}></Button>
         </View>
     </View>
 

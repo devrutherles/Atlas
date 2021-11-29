@@ -9,23 +9,16 @@ import {
   StatusBar
 
 } from 'react-native';
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { color } from 'react-native-reanimated';
-import ListCripto from './ListCripto'
-import CardCentral from './Card'
-
+const nave = require('../../assets/icon/nave.png')
+import { useNavigation } from '@react-navigation/native';
 
 import {
   View,
-  Text,
   Button,
   Colors,
-  Typography,
-  Card,
-  KeyboardAwareFlatList,
   Avatar,
   Chip,
-  TabBar
+
 } from 'react-native-ui-lib';
 import { Header } from 'react-native/Libraries/NewAppScreen';
 const copy = require('../../assets/icon/copy.png');
@@ -48,63 +41,86 @@ function TopBar() {
     }).start();
   };
 
+  const navigation = useNavigation();
 
-
-  function Header() {
-
-    return <View  height={2} bg-grey60 />;
-  }
+  
 
 
   return (
 
 
-          <View
-            row
-            style={{
-              marginTop: 10,
-              marginBottom: 20
-            }}>
-            
-            <Chip
-              labelStyle={{
-                borderColor: 'gray'
-              }}
-              containerStyle={{
-                borderColor: '#f7f9fc',
-                borderBottomRightRadius: 3
-              }}
-              height={8}
-              width={130}
-              badgeProps={{
-                label: '',
-                backgroundColor: 'gray',
-                color: '#1c94f4'
-              }}
-              borderRadius={4}
-              label={'Star Atlas'}
-              backgroundColor={'#f7f9fc'} />
+    <View
+      row
+      style={{
+        marginTop: 10,
+        marginBottom: 20
+      }}>
 
-            <Avatar
-              label={'SA'}
-              badgeProps={{ backgroundColor: '#46d169' }}
-              animate
-              size={35}
-              ribbonStyle={{ backgroundColor: Colors.purple30 }}
+      <Chip
+        labelStyle={{
+          borderColor: 'gray'
+        }}
+        containerStyle={{
+          borderColor: '#f7f9fc',
+          borderBottomRightRadius: 3
+        }}
+        height={8}
+        width={130}
+        badgeProps={{
+          label: 'A',
+          backgroundColor: 'gray',
+          color: '#1c94f4'
+          
+        }}
+        borderRadius={4}
+        label={'Star Atlas'}
+        backgroundColor={'#f7f9fc'} />
 
-              containerStyle={{
-                marginLeft: 120,
-                marginBottom:2
+<Chip
+onPress={()=>navigation.navigate('Marketplace')}
+        labelStyle={{
+          borderColor: 'gray'
+        }}
+        containerStyle={{
+          borderColor: '#f7f9fc',
+          borderBottomRightRadius: 3
+        }}
+        height={6}
+        width={130}
+        marginL-10
+        
+        borderRadius={4}
+        iconSource={nave}
+        iconStyle={{width:20,height:20}}
+        label={'Marketplace'}
+        backgroundColor={'#f7f9fc'} />
 
 
-              }}
-              backgroundColor={'#8dc9f9'}
+       
 
 
-            />
+
+      <Avatar
+        label={'SA'}
+        badgeProps={{ backgroundColor: '#46d169' }}
+        animate
+        size={35}
+        ribbonStyle={{ backgroundColor: Colors.purple30 }}
+
+        containerStyle={{
+          marginLeft: 80,
+          marginBottom: 2
 
 
-          </View>
+        }}
+        backgroundColor={'#8dc9f9'}
+
+
+      />
+
+
+
+    </View>
 
 
 

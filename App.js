@@ -1,10 +1,13 @@
-import { StatusBar } from 'expo-status-bar';
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image } from 'react-native';
 import Start from './screen/Start'
 import Welcome from './screen/Welcome'
 import Wallet from './screen/Wallet'
 import ImportWallt from './screen/ImportWallet'
+import Marketplace from './screen/Marketplace'
+import ConnectPhantom from './screen/ConnectPhantom'
+
+
 
 import ConnectWallet from './screen/ConnectWallet'
 import AsyncStorage from '@react-native-async-storage/async-storage';
@@ -24,29 +27,16 @@ const MyTheme = {
 };
 
 function App() {
-  const [importa, setImporta] = useState('')
-  const [create, setCreate] = useState('')
+const [importa, setImporta] = useState('')
 
-  const readData = async () => {
-    try {
-      const userAge = await AsyncStorage.getItem('@CREATE')
-
-      if (userAge !== null) {
-        setCreate(userAge)
-      }
-    } catch (e) {
-      alert('Failed to fetch the data from storage')
-    }
-  }
+ 
 
 
   const readImport = async () => {
     try {
       const userAge = await AsyncStorage.getItem('@IMPORT')
-
-      if (userAge !== null) {
-        setImporta(importa)
-      }
+      if (userAge!== null){ setImporta(userAge)}
+      
     } catch (e) {
       alert('Failed to fetch the data from storage')
     }
@@ -56,7 +46,6 @@ function App() {
 
 
   useEffect(() => {
-    readData();
     readImport();
 
 
@@ -64,12 +53,14 @@ function App() {
 
   }, [])
 
-  if (importa.length > 0 || create.length > 0) {
+  if (importa.length > 0) {
+
 
     return (
 
       <NavigationContainer theme={MyTheme} >
         <Stack.Navigator>
+
           <Stack.Screen
             name="Home"
             component={Home}
@@ -79,8 +70,9 @@ function App() {
 
           <Stack.Screen name="Wallet" component={Wallet} />
           <Stack.Screen name="Welcome" component={Welcome} />
+          <Stack.Screen name="ConnectPhantom" component={ConnectPhantom} />
           <Stack.Screen name="ConnectWallet" component={ConnectWallet} />
-          <Stack.Screen name="ImportWallet" component={ImportWallt} />
+          <Stack.Screen name="Marketplace" component={Marketplace} />
 
 
 
@@ -100,6 +92,8 @@ function App() {
 
           <Stack.Screen name="Start" component={Start} />
           <Stack.Screen name="Wallet" component={Wallet} />
+          <Stack.Screen name="ConnectPhantom" component={ConnectPhantom} />
+          <Stack.Screen name="Marketplace" component={Marketplace} />
           <Stack.Screen name="Welcome" component={Welcome} />
           <Stack.Screen name="ConnectWallet" component={ConnectWallet} />
           <Stack.Screen name="ImportWallet" component={ImportWallt} />

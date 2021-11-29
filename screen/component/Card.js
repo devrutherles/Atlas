@@ -63,9 +63,9 @@ function CardCentral() {
             <View >
                 <ScrollView horizontal={true}>
 
-                    <View row flex center marginT-50 style={{ marginBottom: 50, alignSelf: 'center', marginLeft: 10, padding: 20, width: '70%' }}>
+                    <View row flex center marginT-50 style={{ marginBottom: 50, alignSelf: 'center', padding: 1, width: '80%' }}>
 
-                        <Card marginL-30 marginR-5 backgroundColor={'#18171f'} >
+                        <Card enableShadow={false}  marginR-5 backgroundColor={'#18171f'} >
                             <Card.Section
                                 backgroundColor={'#18171f'}
                                 padding-10
@@ -107,7 +107,7 @@ function CardCentral() {
 
 
 
-                        <Card marginR-5 backgroundColor={'#18171f'} >
+                        <Card enableShadow={false} marginR-5 backgroundColor={'#18171f'} >
 
                             <Card.Section
                                 backgroundColor={'#18171f'}
@@ -150,7 +150,7 @@ function CardCentral() {
 
 
 
-                        <Card backgroundColor={'#18171f'} >
+                        <Card enableShadow={false} backgroundColor={'#18171f'} >
 
                             <Card.Section
                                 backgroundColor={'#18171f'}

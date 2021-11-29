@@ -3,19 +3,12 @@ import {
   Animated,
   ScrollView,
   Image,
-  SafeAreaView,
   StyleSheet,
-  TouchableOpacity,
-  StatusBar
-
+ 
 } from 'react-native';
 import * as Clipboard from 'expo-clipboard';
-import { BorderlessButton } from 'react-native-gesture-handler';
-import { color } from 'react-native-reanimated';
-import ListCripto from '../screen/component/ListCripto'
 import CardCentral from '../screen/component/Card'
 import ActionBar from '../screen/component/ActionBar'
-import SvgAtlas from './component/Logosvg';
 
 
 
@@ -23,25 +16,13 @@ import {
   View,
   Text,
   Button,
-  Colors,
-  Typography,
-  Card,
-  KeyboardAwareFlatList,
-  Avatar,
-  Chip,
-  TabBar
+ 
 } from 'react-native-ui-lib';
-const copy = require('../assets/icon/copy.png');
-const send = require('../assets/icon/send.png')
 const atlaspng = require('../assets/icon/atlaspng.png')
 const grafico = require('../assets/icon/grafico.png')
 
 
-const exchange = require('../assets/icon/exchange.png')
-const card = require('../assets/icon/card.png')
-const ButtonSpace = 20;
-
-function Home() {
+function Home({navigation}) {
   state = {};
   toggle = false;
   animatedValue = new Animated.Value(0);
@@ -55,17 +36,21 @@ function Home() {
     }).start();
   };
 
-  const copyToClipboard = () => {
-    Clipboard.setString('ronin:e61bdb6ce91e91fefe19a7db315bd1887ddf50b9');
+  function copyToClipboardRonin  ()  {
+    Clipboard.setString('2vHjvtts24GshVWCe7gzGxXGFDfQK9EtXnBLKkT7Qaim');
     alert('key copied successfully');
+};
+
+function copyToClipboardSolflare () {
+  Clipboard.setString('HSHTabqLvweVDPEJzrAaLFmQwWV646Aj6sy4fCxJ5SNT');
+  alert('key copied successfully');
 };
 
 
 
-  function renderDivider() {
-
-    return <View height={2} bg-grey60 />;
-  }
+const phanton = require('../assets/icon/phanton.png')
+const sol = require('../assets/icon/sol.png')
+const solana = require('../assets/icon/solana.png')
 
 
   return (
@@ -81,11 +66,27 @@ function Home() {
 
           <CardCentral />
           <View marginT-10>
-            <Text text60 marginB-20 marginL-10>TRANSFERS</Text>
+
+<View >
+         <Text style={{alignSelf:'center',marginBottom:20}} text90 >TRANSFER TO SUPPORTED WALLETS</Text>
+        
+        <Button onPress={ copyToClipboardRonin} iconStyle={{ width: 30, height: 30 }} 
+        outline={true} outlineColor={'#222129'} iconSource={phanton} borderRadius={4} style={{ width: '90%', alignSelf: 'center', marginBottom: 10, }} label={'PHANTOM'}></Button>
+        
+        <Button onPress={ copyToClipboardSolflare} iconStyle={{ width: 30, height: 30 }} 
+        outline={true} outlineColor={'#222129'} iconSource={sol} borderRadius={4} style={{ width: '90%', alignSelf: 'center', marginBottom: 10, }} label={'SOLFLARE'}></Button>
+        
+        <Button onPress={copyToClipboardSolflare} iconStyle={{ width: 30, height: 30 }} 
+        outline={true} outlineColor={'#222129'} iconSource={solana} borderRadius={4} style={{ width: '90%', alignSelf: 'center', marginBottom: 10, }} label={'SOLLET.IO'}></Button>
+
+
+</View>
+
+            <Text text60  marginL-10 style={{marginTop:15}}>TRANSFERS</Text>
           </View>
-          <Image style={{ width: 200, height: 200, alignSelf: 'center' }} source={grafico}></Image>
+          <Image style={{ width: 200, height: 200, alignSelf: 'center' , marginTop:20 }} source={grafico}></Image>
           <Text style={{ color: 'gray', alignSelf: 'center', marginTop: 20 }}>YOU HAVE NOT MADE DEPOSITS YET</Text>
-          <Button onPress={copyToClipboard} borderRadius={7} style={{ width: '80%', alignSelf: 'center', marginTop: 20, marginBottom:20 }} label={'DEPOSIT'}></Button>
+          <Button onPress={copyToClipboardSolflare} borderRadius={7} style={{ width: '80%', alignSelf: 'center', marginTop: 20, marginBottom:20 }} label={'DEPOSIT'}></Button>
         </View >
 
 
